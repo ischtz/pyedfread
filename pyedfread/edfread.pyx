@@ -212,7 +212,7 @@ cdef parse_edf(filename, ignore_samples, filter, split_char, trial_marker):
                                                            current_event,
                                                            event_accumulator)
     free(buf)
-    return samples, event_accumulator, message_accumulator
+    return samples[0:cnt, :], event_accumulator, message_accumulator
 
 
 def parse_datum(data, sample_type, trial, split_char, filter, ignore_samples,
